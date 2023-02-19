@@ -4,12 +4,12 @@
 		"bigInt": {
 			"description": "JS BigInt to Wasm i64 integration",
 			"url": "https://github.com/WebAssembly/JS-BigInt-integration",
-			"phase": 4
+			"phase": 5
 		},
 		"bulkMemory": {
 			"description": "Bulk memory operations",
 			"url": "https://github.com/WebAssembly/bulk-memory-operations/blob/master/proposals/bulk-memory-operations/Overview.md",
-			"phase": 4
+			"phase": 5
 		},
 		"exceptions": {
 			"description": "Exception handling",
@@ -19,6 +19,11 @@
 		"extendedConst": {
 			"description": "Extended constant expressions",
 			"url": "https://github.com/WebAssembly/extended-const/blob/master/proposals/extended-const/Overview.md",
+			"phase": 4
+		},
+		"gc": {
+			"description": "Garbage collection",
+			"url":"https://github.com/WebAssembly/gc",
 			"phase": 3
 		},
 		"memory64": {
@@ -44,47 +49,47 @@
 		"mutableGlobals": {
 			"description": "Mutable globals",
 			"url": "https://github.com/WebAssembly/mutable-global/blob/master/proposals/mutable-global/Overview.md",
-			"phase": 4
+			"phase": 5
 		},
 		"referenceTypes": {
 			"description": "Reference types",
 			"url": "https://github.com/WebAssembly/reference-types/blob/master/proposals/reference-types/Overview.md",
-			"phase": 4
+			"phase": 5
 		},
 		"relaxedSimd": {
 			"description": "Relaxed SIMD",
 			"url": "https://github.com/WebAssembly/relaxed-simd/tree/main/proposals/relaxed-simd",
-			"phase": 2
+			"phase": 3
 		},
 		"saturatedFloatToInt": {
 			"description": "Non-trapping float-to-int conversions",
 			"url": "https://github.com/WebAssembly/spec/blob/master/proposals/nontrapping-float-to-int-conversion/Overview.md",
-			"phase": 4
+			"phase": 5
 		},
 		"signExtensions": {
 			"description": "Sign-extension operations",
 			"url": "https://github.com/WebAssembly/spec/blob/master/proposals/sign-extension-ops/Overview.md",
-			"phase": 4
+			"phase": 5
 		},
 		"simd": {
 			"description": "Fixed-width SIMD",
 			"url": "https://github.com/WebAssembly/simd/blob/master/proposals/simd/SIMD.md",
-			"phase": 4
+			"phase": 5
 		},
 		"tailCall": {
 			"description": "Tail calls",
 			"url": "https://github.com/WebAssembly/tail-call/blob/master/proposals/tail-call/Overview.md",
-			"phase": 3
+			"phase": 4
 		},
 		"threads": {
 			"description": "Threads and atomics",
 			"url": "https://github.com/WebAssembly/threads/blob/master/proposals/threads/Overview.md",
-			"phase": 2
+			"phase": 3
 		},
 		"typeReflection": {
 			"description": "Type reflection",
 			"url": "https://github.com/WebAssembly/js-types/blob/main/proposals/js-types/Overview.md",
-			"phase": 2
+			"phase": 3
 		}
 	},
 	"browsers": {
@@ -96,6 +101,7 @@
 				"bulkMemory": "75",
 				"exceptions": "95",
 				"extendedConst": ["flag", "Requires flag `--js-flags=--experimental-wasm-extended-const`"],
+				"gc": ["flag", "Requires flag `chrome://flags/#enable-webassembly-garbage-collection`"],
 				"memory64": ["flag", "Requires flag `--js-flags=--experimental-wasm-memory64`"],
 				"multiValue": "85",
 				"mutableGlobals": "74",
@@ -141,6 +147,8 @@
 				"referenceTypes": "15",
 				"saturatedFloatToInt": "15",
 				"signExtensions": ["14.1", "Supported in desktop Safari since 14.1 and iOS Safari since 14.5"],
+				"simd": "16.4",
+				"tailCall": ["flag", "Available in Safari TP 161"],
 				"threads": ["14.1", "Supported in desktop Safari since 14.1 and iOS Safari since 14.5"]
 			}
 		},
@@ -150,8 +158,8 @@
 			"features": {
 				"bigInt": null,
 				"bulkMemory": "0.20",
-				"memory64": ["flag", "Requires flag `--enable-memory64`"],
-				"multiMemory": ["flag", "Requires flag `--enable-multi-memory`"],
+				"memory64": ["flag", "Requires flag `--wasm-features=memory64`"],
+				"multiMemory": ["flag", "Requires flag `--wasm-features=multi-memory`"],
 				"multiValue": "0.17",
 				"mutableGlobals": true,
 				"referenceTypes": "0.20",
@@ -223,14 +231,15 @@
 			"logo": "/images/wasm2c.svg",
 			"features": {
 				"bigInt": null,
-				"bulkMemory": true,
+				"bulkMemory": "1.0.30",
 				"exceptions": ["flag", "Requires flag `--enable-exceptions`"],
+				"memory64": ["flag", "Requires flag `--enable-memory64`"],
 				"multiMemory": ["flag", "Requires flag `--enable-multi-memory`"],
-				"multiValue": true,
-				"mutableGlobals": true,
-				"referenceTypes": true,
-				"saturatedFloatToInt": true,
-				"signExtensions": true,
+				"multiValue": "1.0.24",
+				"mutableGlobals": "1.0.1",
+				"referenceTypes": "1.0.31",
+				"saturatedFloatToInt": "1.0.24",
+				"signExtensions": "1.0.24",
 				"simd": false
 			}
 		}
