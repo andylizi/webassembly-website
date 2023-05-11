@@ -36,11 +36,6 @@
 			"url": "https://github.com/WebAssembly/multi-memory/blob/master/proposals/multi-memory/Overview.md",
 			"phase": 3
 		},
-		"moduleLinking": {
-			"description": "Module Linking",
-			"url": "https://github.com/WebAssembly/module-linking/blob/main/design/proposals/module-linking/Explainer.md",
-			"phase": 1
-		},
 		"multiValue": {
 			"description": "Multi-value",
 			"url": "https://github.com/WebAssembly/spec/blob/master/proposals/multi-value/Overview.md",
@@ -100,17 +95,17 @@
 				"bigInt": "85",
 				"bulkMemory": "75",
 				"exceptions": "95",
-				"extendedConst": ["flag", "Requires flag `--js-flags=--experimental-wasm-extended-const`"],
+				"extendedConst": "114",
 				"gc": ["flag", "Requires flag `chrome://flags/#enable-webassembly-garbage-collection`"],
-				"memory64": ["flag", "Requires flag `--js-flags=--experimental-wasm-memory64`"],
+				"memory64": ["flag", "Requires flag `chrome://flags/#enable-experimental-webassembly-features`"],
 				"multiValue": "85",
 				"mutableGlobals": "74",
-				"relaxedSimd": ["flag", "Requires flag `--js-flags=--experimental-wasm-relaxed-simd`"],
+				"relaxedSimd": ["flag", "Requires flag `chrome://flags/#enable-experimental-webassembly-features`"],
 				"referenceTypes": "96",
 				"saturatedFloatToInt": "75",
 				"signExtensions": "74",
 				"simd": "91",
-				"tailCall": ["flag", "Requires flag `chrome://flags/#enable-experimental-webassembly-features`"],
+				"tailCall": "112",
 				"threads": "74",
 				"typeReflection": ["flag", "Requires flag `chrome://flags/#enable-experimental-webassembly-features`"]
 			}
@@ -148,7 +143,7 @@
 				"saturatedFloatToInt": "15",
 				"signExtensions": ["14.1", "Supported in desktop Safari since 14.1 and iOS Safari since 14.5"],
 				"simd": "16.4",
-				"tailCall": ["flag", "Available in Safari TP 161"],
+				"tailCall": false,
 				"threads": ["14.1", "Supported in desktop Safari since 14.1 and iOS Safari since 14.5"]
 			}
 		},
@@ -181,14 +176,15 @@
 				"saturatedFloatToInt": true,
 				"signExtensions": true,
 				"simd": "2.0",
-				"threads": null
+				"threads": null,
+				"typeReflection": "2.0"
 			}
 		},
 		"Node.js": {
 			"url": "https://nodejs.org/",
 			"logo": "/images/nodejs.svg",
 			"features": {
-				"bigInt": true,
+				"bigInt": "15.0",
 				"bulkMemory": "12.5",
 				"exceptions": "17.0",
 				"extendedConst": ["flag", "Requires flag `--experimental-wasm-extended-const`"],
@@ -209,7 +205,7 @@
 			"url": "https://deno.land/",
 			"logo": "/images/deno.svg",
 			"features": {
-				"bigInt": true,
+				"bigInt": "1.1.2",
 				"bulkMemory": "0.4",
 				"exceptions": "1.16",
 				"extendedConst": ["flag", "Requires flag `--v8-flags=--experimental-wasm-extended-const`"],
